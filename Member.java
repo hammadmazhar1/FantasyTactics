@@ -12,6 +12,7 @@ public class Member {
 	private int def;
 	private int mgc;
 	private int res;
+	private int exp;
 	private Job job;
 	private ArrayList<AbilitySet> skills;
 	private Weapon eqWeapon;
@@ -37,6 +38,7 @@ public class Member {
 		def = job.intDef;
 		mgc = job.intMgc;
 		res = job.intRes;
+		exp = 0;
 		eqWeapon = null;
 		eqArmor = null;
 		eqHat = null;
@@ -62,6 +64,7 @@ public class Member {
 		def = chr.def;
 		mgc = chr.mgc;
 		res = chr.res;
+		exp = chr.exp;
 		eqWeapon = chr.eqWeapon;
 		eqArmor = chr.eqArmor;
 		eqHat = chr.eqHat;
@@ -74,10 +77,13 @@ public class Member {
 	
 	}
 	public int getmaxHp() {
+		return maxHp;
 	}
 	public int getmaxMp() {
+		return maxMp
 	}
 	public int getAtk() {
+		return atk+eqWeapon.getAtk()+job.getAtkBon();
 	}
 	public int getDef() {
 	}
@@ -91,12 +97,44 @@ public class Member {
 	}
 	public int getResist() {
 	}
-	public int getWeap() {
+	public Job getJob() {
 	}
-	public int getArmor() {
+	public boolean setJob(Job jb) {}
+	public Weapon getWeap() {
 	}
-	public int getHat() {
+	public boolean setWeap(Weapon wpn) {
 	}
-	public int get
+	public Armor getArmor() {
+	}
+	public boolean setArmor(Armor amr) {
+	}
+	public Headgear getHat() {
+	}
+	public boolean setHat(Headgear hg) {
+	}
+	public Accessory getAcc() {
+	}
+	public boolean setAcc(Accessory acc) {
+	}
+	public ArrayList<AbilitySet> getSkills() {
+	}
+	public PasAbil getReact() {
+	}
+	public boolean setReact(PasAbil pa) {
+	}
+	public PasAbil getSupp() {
+	}
+	public boolean setSupp(PasAbil pa) {
+	}
+	public AbilitySet getPrimAbil() {
+	}
+	public boolean setPrimAbil(AbilitySet abil){
+	}
+	public AbilitySet getSecAbil() {
+	}
+	public boolean setSecAbil(AbilitySet abil){
+	}
+	public boolean levelUp() {
+	}
 
 }
