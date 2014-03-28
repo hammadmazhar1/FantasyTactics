@@ -1,0 +1,50 @@
+Fields for Character:
+Move
+Jump
+Evasion
+Speed
+Attack
+Defense
+Magic
+Resistance
+Job specific modifiers:
+Same as Character Fields.
+(In Battle Instance keep temp modifiers)
+Passive Skill Modifiers:
+Equippable Items,
+Same as Character
+
+Active Skill Modifiers:
+Attack, Defense and/or Magic
+
+Attack damage calculation:
+(Attack -(Defense/2))*.5 * (facing modifier i.e , 1 for front, 1.5 for sides and 2 for back)
+
+Magic damage calculation:
+(Magic+Spell Modifier(Resistance/2))*.75 * (facing modifier)
+
+Physical Magic calc:
+(Base Attack + Skill modifier -(Defense/2)*.75) * ( facing modifier )
+
+Stat Growth:
+Except for Speed stat,
+((Growth Modifier*4)+9)/10
+Speed is raised by .25 probabislitacly
+
+Basic growth modifiers:
+Character  			HP  Mp  AtK  DEF  MGC  RES  SPEED(%)
+Soldier				8	1	9	 8	  6		7	50
+Healer				6	4	6	 7	  8		8	52
+Mage 				5	5	6	 6	  10	10	46
+Thief				6	1	7	 7	  7		6	70
+Archer				7	1	7	 7	  6		7	55
+Fighter(Soldier)	6	1	10	 8	  5		6	53
+Ninja(Thief)		5	2	9	 6 	  7		7	90
+Hunter(Archer)		6	3	8	 6	  7		8	65
+Illusionist(Mage)	5	7	6	 6	  9		8	35
+Seer(Healer)		6	7	6	 7	  8		11	40
+
+Exp Calculation:
+10 Exp if on same level.+-1 Exp for level difference minimum 1 Exp. Fighting against higher levels grants higher exp and vice versa
+
+Speed
