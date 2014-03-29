@@ -248,16 +248,16 @@ public class Member implements Status {
 	}
 	public boolean levelUp() {
 		exp -= 100;
-		atk += ((job.getAtkF()*4)+9)/10;
-		def += ((job.getDefF()*4)+9)/10;
-		mgc += ((job.getMgcF()*4)+9)/10;
+		atk += ((job.getAtkF())+9)/10;
+		def += ((job.getDefF())+9)/10;
+		mgc += ((job.getMgcF())+9)/10;
 		Random r = new Random();
 		if (r.getDouble() <= job.getSpdF()) {
 			spd++;
 		}
-		maxHp = ((job.getHpF()*4)+9)/10;
-		maxMp = ((job.getMpF()*4)+9)/10;
-		res += ((job.getResF()*4)+9)/10;
+		maxHp += ((job.getHpF())+9)/10;
+		maxMp += ((job.getMpF())+9)/10;
+		res += ((job.getResF())+9)/10;
 		
 	}
 
