@@ -12,8 +12,10 @@ public class Job {
 	int intRes;
 	int HpF;
 	int MpF;
+	int AtkF;
 	int DefF;
 	int MgcF;
 	int ResF;
-	int
+	AbilitySet abilSet;
+	AbilitySet
 }

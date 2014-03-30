@@ -14,7 +14,7 @@ public class Member implements Status {
 	private int res;
 	private int exp;
 	private Job job;
-	private ArrayList<AbilitySet> skills;
+	private ArrayList<Job> jobs;
 	private Weapon eqWeapon;
 	private Shield eqShield;
 	private Armor eqArmor;
@@ -45,8 +45,8 @@ public class Member implements Status {
 		eqArmor = null;
 		eqHat = null;
 		eqAcc = null;
-		skills = new ArrayList<AbilitySet>();
-		skills.add(job.abilSet);
+		jobs = new ArrayList<Job>();
+		jobs.add(job);
 		primAbil = job.abilSet;
 		secAbil = null;
 		reactAbil = null;
@@ -72,7 +72,7 @@ public class Member implements Status {
 		eqArmor = chr.eqArmor;
 		eqHat = chr.eqHat;
 		eqAcc = chr.eqAcc;
-		skills = chr.skills;
+		jobs = chr.jobs;
 		primAbil = chr.primAbil;
 		secAbil =chr.secAbil;
 		reactAbil = chr.secAbil;
