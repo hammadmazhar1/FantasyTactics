@@ -1,6 +1,21 @@
 public class Stats {
+
 	/*
-	Initial Hp stats for jobs
+	JOB IDENTIFIERS
+	*/
+	public static final int SOLDIER = 1;
+	public static final int THIEF = 2;
+	public static final int HEALER = 3;
+	public static final int MAGE = 4;
+	public static final int ARCHER = 5;
+	public static final int FIGHTER = 6;
+	public static final int NINJA = 7;
+	public static final int WIZARD = 8;
+	public static final int SEER = 9;
+	public static final int HUNTER = 10;
+	
+	/*
+	INITIAL HP STATS
 	*/
 	public static final int HPSOLDIER = 90;
 	public static final int HPTHIEF = 83;
@@ -14,7 +29,7 @@ public class Stats {
 	public static final int HPHUNTER = 84;
 	
 	/*
-	Initial Mp stats for jobs
+	INITIAL MP STATS
 	*/
 	public static final int MPSOLDIER = 15;
 	public static final int MPTHIEF = 15;
@@ -26,8 +41,9 @@ public class Stats {
 	public static final int MPWIZARD = 38;
 	public static final int MPSEER = 48;
 	public static final int MPHUNTER = 26;
+	
 	/*
-	INITIAL SPEED STATS FOR JOBS
+	INITIAL SPEED STATS
 	*/
 	public static final int SPDSOLDIER = 57;
 	public static final int SPDTHIEF = 60;
@@ -52,6 +68,7 @@ public class Stats {
 	public static final int ATKWIZARD = 60;
 	public static final int ATKSEER = 63;
 	public static final int ATKHUNTER = 84;
+	
 	/*
 	INITIAL DEF STATS
 	*/
@@ -65,6 +82,7 @@ public class Stats {
 	public static final int DEFWIZARD = 64;
 	public static final int DEFSEER = 71;
 	public static final int DEFHUNTER = 66;
+	
 	/*
 	INITIAL MGC STATS
 	*/
@@ -78,6 +96,7 @@ public class Stats {
 	public static final int MGCWIZARD = 92;
 	public static final int MGCSEER = 68;
 	public static final int MGCHUNTER = 90;
+	
 	/*
 	INITIAL RES STATS
 	*/
@@ -91,6 +110,7 @@ public class Stats {
 	public static final int RESWIZARD = 84;
 	public static final int RESSEER = 99;
 	public static final int RESHUNTER = 84;
+	
 	/*
 	HP GROWTH STATS
 	*/
@@ -104,6 +124,7 @@ public class Stats {
 	public static final int HPFWIZARD = 5;
 	public static final int HPFSEER = 6;
 	public static final int HPFHUNTER = 6;
+	
 	/*
 	MP GROWTH STATS
 	*/
@@ -117,6 +138,7 @@ public class Stats {
 	public static final int MPFWIZARD = 7;
 	public static final int MPFSEER = 7;
 	public static final int MPFHUNTER = 3;
+	
 	/*
 	SPD GROWTH STATS
 	*/
@@ -130,7 +152,60 @@ public class Stats {
 	public static final double SPDFWIZARD = .35;
 	public static final double SPDFSEER = .40;
 	public static final double SPDFHUNTER = .65;
+	
 	/*
 	ATK GROWTH STATS
 	*/
+	public static final int ATKFSOLDIER = 9;
+	public static final int ATKFTHIEF = 7;
+	public static final int ATKFHEALER = 7;
+	public static final int ATKFMAGE = 6;
+	public static final int ATKFARCHER = 7;
+	public static final int ATKFFIGHTER = 10;
+	public static final int ATKFNINJA = 9;
+	public static final int ATKFWIZARD = 6;
+	public static final int ATKFSEER = 6;
+	public static final int ATKFHUNTER = 8;
+	
+	/*
+	DEF GROWTH STATS
+	*/ 
+	public static final int DEFFSOLDIER = 8;
+	public static final int DEFFTHIEF = 7;
+	public static final int DEFFHEALER = 7;
+	public static final int DEFFMAGE = 6;
+	public static final int DEFFARCHER = 7;
+	public static final int DEFFFIGHTER = 8;
+	public static final int DEFFNINJA = 6;
+	public static final int DEFFWIZARD = 6;
+	public static final int DEFFSEER = 7;
+	public static final int DEFFHUNTER = 6;
+	
+	/*
+	MGC GROWTH STATS
+	*/
+	public static final int MGCFSOLDIER = 6;
+	public static final int MGCFTHIEF = 7;
+	public static final int MGCFHEALER = 8;
+	public static final int MGCFMAGE = 10;
+	public static final int MGCFARCHER = 6;
+	public static final int MGCFFIGHTER = 5;
+	public static final int MGCFNINJA = 7;
+	public static final int MGCFWIZARD = 9;
+	public static final int MGCFSEER = 8;
+	public static final int MGCFHUNTER = 6;
+	
+	/*
+	RES GROWTH STATS
+	*/
+	public static final int RESFSOLDIER = 7;
+	public static final int RESFTHIEF = 6;
+	public static final int RESFHEALER = 8;
+	public static final int RESFMAGE = 10;
+	public static final int RESFARCHER = 7;
+	public static final int RESFFIGHTER = 6;
+	public static final int RESFNINJA = 7;
+	public static final int RESFWIZARD = 8;
+	public static final int RESFSEER = 11;
+	public static final int RESFHUNTER = 8;
 }
