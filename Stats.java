@@ -1,5 +1,32 @@
 public class Stats {
-
+	
+	/*
+	ELEMENT IDENTIFIERS
+	*/
+	public static final int FIRE = 1;
+	public static final int ICE = 2;
+	public static final int LIGHTNING = 3;
+	public static final int HOLY = 4;
+	public static final int DARK = 5;
+	public static final int WIND = 6;
+	public static final int EARTH = 7;
+	
+	/*
+	ABILITY IDENTIFIERS
+	*/
+	public static final int PHYSICAL = 1;
+	public static final int MAGIC = 2;
+	public static final int ACTIVE = 3;
+	public static final int PASSIVE = 4;
+	/*
+	STATUS IDENTIFIERS
+	*/
+	public static final int POISON = 1;
+	public static final int CONFUSE = 2;
+	public static final int CHARM = 3;
+	public static final int BLIND = 4;
+	public static final int DISABLE = 5;
+	public static final int IMMOBILIZE = 6;
 	/*
 	JOB IDENTIFIERS
 	*/

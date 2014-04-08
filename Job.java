@@ -1,5 +1,6 @@
 public class Job {
 	String name;
+	int type;
 	int intHp;
 	int intMp;
 	int intMove;
@@ -16,6 +17,19 @@ public class Job {
 	int DefF;
 	int MgcF;
 	int ResF;
+	int level;
+	int curJP;
+	int totalJP
 	AbilitySet abilSet;
-	AbilitySet
+	Job(int typ) {
+		if (typ == Stats.SOLDIER) {
+			name = "Soldier";
+			type = typ;
+			intHP = Stats.HPSOlDIER;
+			intMP = Stats.MPSOLDIER;
+			intMove = 4;
+			intSpd = Stats.SPDSOLDIER;
+			intEvd = Stats.EVDSOLDIER;
+		}
+	}
 }
