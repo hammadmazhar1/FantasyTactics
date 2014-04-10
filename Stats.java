@@ -70,6 +70,19 @@ public class Stats {
 	public static final int MPHUNTER = 26;
 	
 	/*
+	INITIAL JUMP STATS
+	*/
+	public static final int JMPSOLDIER = 2;
+	public static final int JMPTHIEF = 3;
+	public static final int JMPHUNTER = 2;
+	public static final int JMPSEER = 2;
+	public static final int JMPNINJA = 3;
+	public static final int JMPFIGHTER = 2;
+	public static final int JMPARCHER = 2;
+	public static final int JMPWIZARD = 2;
+	public static final int JMPMAGE = 2;
+	public static final int JMPSEER = 2;
+	/*
 	INITIAL SPEED STATS
 	*/
 	public static final int SPDSOLDIER = 57;
@@ -95,7 +108,19 @@ public class Stats {
 	public static final int ATKWIZARD = 60;
 	public static final int ATKSEER = 63;
 	public static final int ATKHUNTER = 84;
-	
+	/*
+	INITIAL EVADE STATS
+	*/
+	public static final int EVDSOLDIER = 0;
+	public static final int EVDTHIEF = 3;
+	public static final int EVDHEALER = 0;
+	public static final int EVDMAGE = 0;
+	public static final int EVDARCHER = 5;
+	public static final int EVDFIGHTER = 0;
+	public static final int EVDNINJA = 15;
+	public static final int EVDSEER = 0;
+	public static final int EVDHUNTER = 5;
+	public static final int EVDWIZARD = 0;
 	/*
 	INITIAL DEF STATS
 	*/
