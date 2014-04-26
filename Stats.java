@@ -10,7 +10,26 @@ public class Stats {
 	public static final int DARK = 5;
 	public static final int WIND = 6;
 	public static final int EARTH = 7;
-	
+	/*
+	ITEM IDENTIFIERS
+	*/
+	public static final int WEAPN = 1;
+	public static final int ATTIRE = 2;
+	public static final int SWORDS = 1;
+	public static final int KNIVES = 2;
+	public static final int STAVES = 3;
+	public static final int RODS = 4;
+	public static final int BOWS = 5;
+	public static final int BLADES = 6;
+	public static final int KATANAS = 7;
+	public static final int GREATBOWS = 8;
+	public static final int BOOKS = 9;
+	public static final int ARMOR = 1;
+	public static final int CLOTHES = 2;
+	public static final int ROBES = 3;
+	public static final int HELMETS = 1;
+	public static final int HATS = 2;
+	public static final int SHIELDS = 3;
 	/*
 	ABILITY IDENTIFIERS
 	*/
@@ -40,7 +59,33 @@ public class Stats {
 	public static final int WIZARD = 8;
 	public static final int SEER = 9;
 	public static final int HUNTER = 10;
+	/*
+	 ATTACK BONUS STATS
+	*/
+	public static final int ABONSOLDIER = 18;
+	public static final int ABONTHIEF = 15;
+	public static final int ABONHEALER = 10;
+	public static final int ABONMAGE = 10;
+	public static final int ABONARCHER = 10;
+	public static final int ABONFIGHTER = 20;
+	public static final int ABONNINJA = 17;
+	public static final int ABONSEER = 12;
+	public static final int ABONWIZARD = 12;
+	public static final int ABONHUNTER = 12;
 	
+	/*
+	INITIAL MOVE STATS
+	*/
+	public static final int MVESOLDIER = 4;
+	public static final int MVETHIEF = 4;
+	public static final int MVEHEALER = 3;
+	public static final int MVEMAGE = 3;
+	public static final int MVEARCHER=4;
+	public static final int MVEFIGHTER =4;
+	public static final int MVENINJA = 4;
+	public static final int MVEWIZARD = 4;
+	public static final int MVEHUNTER = 4;
+	public static final int MVESEER = 3;
 	/*
 	INITIAL HP STATS
 	*/

@@ -3,7 +3,7 @@ public class Ability {
 	String name;
 	int abilType;
 	int atkType;
-	int atk;
+	int power;
 	ArrayList<Integer> statuses;
 	int element;
 	int accuracy;
@@ -15,7 +15,7 @@ public class Ability {
 	Ability() {
 		abilType = 0;
 		atkType = 0;
-		atk =0;
+		power =0;
 		statuses = new ArrayList<Integer>();
 		element = 0;
 		accuracy = 0;
@@ -24,6 +24,12 @@ public class Ability {
 		reqMP = 0;
 		range = 0;
 	}
-	public void doAction(Character vic) {
+	Ability(String nm) {
+		name = nm;
+		switch (nm) {
+			case 
+		}
+	}
+	public void doAction(Member vic) {
 	}
 }

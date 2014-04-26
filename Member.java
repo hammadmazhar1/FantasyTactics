@@ -14,21 +14,32 @@ public class Member implements Status {
 	private int res;
 	private int exp;
 	private Job job;
-	private ArrayList<Job> jobs;
-	private Weapon eqWeapon;
-	private Shield eqShield;
-	private Armor eqArmor;
-	private Headgear eqHat;
-	private Accessory eqAcc;
+	private HashMap<Integer,Job> jobs;
+	private Item eqWeapon;
+	private Item eqShield;
+	private Item eqArmor;
+	private Item eqHat;
+	private Item eqAcc;
 	private AbilitySet primAbil;
 	private AbilitySet secAbil;
-	private PasAbil reactAbil;
-	private PasAbil suppAbil;
+	private Ability reactAbil;
+	private Ability suppAbil;
 	
-	Member(String nm, Job jb){
+	Member(String nm, int jb){
 		level = 1;
+		jobs = new HashMap<Integer,Job>();
+		jobs.put(Stats.SOLDIER,new Job(Stats.SOLDIER));
+		jobs.put(Stats.THIEF, new Job(Stats.THIEF));
+		jobs.put(Stats.HEALER,new Job(Stats.HEALER));
+		jobs.put(Stats.MAGE,new Job(Stats.MAGE));
+		jobs.put(Stats.ARCHER,new Job(Stats.ARCHER));
+		jobs.put(Stats.FIGHTER, new Job(Stats.FIGHTER));
+		jobs.put(Stats.NINJA, new Job(Stats.NINJA));
+		jobs.put(Stats.SEER, new Job(Stats.SEER));
+		jobs.put(Stats.WIZARD, new Job(Stats.WIZARD));
+		jobs.put(Stats.HUNTER, new Job(Stats.HUNTER));
 		name = nm;
-		job = jb;
+		job = jobs.get(jb);
 		maxHp= job.intHp;
 		maxMp = job.intMp;
 		move = job.intMove;
@@ -45,8 +56,6 @@ public class Member implements Status {
 		eqArmor = null;
 		eqHat = null;
 		eqAcc = null;
-		jobs = new ArrayList<Job>();
-		jobs.add(job);
 		primAbil = job.abilSet;
 		secAbil = null;
 		reactAbil = null;
@@ -92,7 +101,7 @@ public class Member implements Status {
 		if (eqWeapon) {
 			return atk + eqWeapon.getAtk();
 		} else {
-			return atk + job.getAtkBon();
+			return atk + job.atkBon;
 		}
 	}
 	public int getDef() {
@@ -159,7 +168,8 @@ public class Member implements Status {
 		} else {
 			ans = 10 + (level - vic.getLevel());
 		}
-		exp += ans; 
+		exp += ans;
+		
 		return ans;
 	}
 	public int getSpd() {
@@ -172,13 +182,13 @@ public class Member implements Status {
 	public int getResist() {
 		int ans = res;
 		if (eqArmor) {
-			ans = eqArmor.getResist();
+			ans += eqArmor.getResist();
 		}
 		if (eqHat) {
-			ans = eqHat.getResist();
+			ans += eqHat.getResist();
 		}
 		if (eqShield) {
-			ans = eqShield.getResist();
+			ans += eqShield.getResist();
 		}
 		return ans;
 	}
@@ -186,11 +196,19 @@ public class Member implements Status {
 		return job;
 	}
 	public boolean setJob(Job jb) {
+		for (PreReq i : jb.required) {
+			if (jobs.get(i.typ) < i.level) {
+				return false;
+			}
+		}
+		job = jb;
+		return true;
 	}
 	public Weapon getWeap() {
 		return eqWeapon;
 	}
-	public boolean setWeap(Weapon wpn) {
+	public boolean setWeap(Item wpn) {
+		
 	}
 	public Armor getArmor() {
 		return eqArmor;
@@ -247,18 +265,24 @@ public class Member implements Status {
 	public boolean setSecAbil(AbilitySet abil){
 	}
 	public boolean levelUp() {
-		exp -= 100;
-		atk += ((job.getAtkF())+9)/10;
-		def += ((job.getDefF())+9)/10;
-		mgc += ((job.getMgcF())+9)/10;
-		Random r = new Random();
-		if (r.getDouble() <= job.getSpdF()) {
-			spd++;
+		if (exp < 100) {
+			return false;
+		} else {
+			exp -= 100;
+			atk += ((job.AtkF)+9)/10;
+			def += ((job.DefF)+9)/10;
+			mgc += ((job.MgcF)+9)/10;
+			Random r = new Random();
+			if (r.getDouble() <= job.getSpdF()) {
+				if (spd <197){
+					spd++;
+				}
+			}
+			maxHp += ((job.HpF)+9)/10;
+			maxMp += ((job.MpF)+9)/10;
+			res += ((job.ResF)+9)/10;
+			return true;
 		}
-		maxHp += ((job.getHpF())+9)/10;
-		maxMp += ((job.getMpF())+9)/10;
-		res += ((job.getResF())+9)/10;
-		
 	}
 
 }
