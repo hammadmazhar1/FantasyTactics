@@ -1,3 +1,4 @@
+import java.util.*;
 public interface Status {
 	public int getAtk();
 	public int getDef();
@@ -7,4 +8,7 @@ public interface Status {
 	public int getEvade();
 	public int getSpd();
 	public int getResist();
+	public ArrayList<Integer> getProtects();
+	public ArrayList<Integer> getEffects();
+	public String getName();
 }

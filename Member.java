@@ -1,5 +1,6 @@
-import java.util.*
-public class Member implements Status {
+import java.util.*;
+import java.io.*;
+public class Member implements Status, Serializable {
 	private String name;
 	private int level;
 	private int maxHp;
@@ -40,8 +41,8 @@ public class Member implements Status {
 		jobs.put(Stats.HUNTER, new Job(Stats.HUNTER));
 		name = nm;
 		job = jobs.get(jb);
-		maxHp= job.intHp;
-		maxMp = job.intMp;
+		maxHp= job.intHP;
+		maxMp = job.intMP;
 		move = job.intMove;
 		spd = job.intSpd;
 		jmp = job.intJmp;
@@ -62,7 +63,7 @@ public class Member implements Status {
 		suppAbil = null;
 	}
 	Member(Member chr) {
-		level = chr.lev;
+		level = chr.level;
 		name = chr.name;
 		job = chr.job;
 		maxHp = chr.maxHp;
@@ -84,7 +85,7 @@ public class Member implements Status {
 		jobs = chr.jobs;
 		primAbil = chr.primAbil;
 		secAbil =chr.secAbil;
-		reactAbil = chr.secAbil;
+		reactAbil = chr.reactAbil;
 		suppAbil = chr.suppAbil;
 	
 	}
@@ -92,34 +93,34 @@ public class Member implements Status {
 		return maxHp;
 	}
 	public int getmaxMp() {
-		return maxMp
+		return maxMp;
 	}
 	public int getLevel() {
 		return level;
 	}
 	public int getAtk() {
-		if (eqWeapon) {
+		if (eqWeapon != null) {
 			return atk + eqWeapon.getAtk();
 		} else {
 			return atk + job.atkBon;
 		}
 	}
 	public int getDef() {
-		if (eqArmor) {
+		if (eqArmor != null) {
 			return def + eqArmor.getDef();
 		} else {
 			return def;
 		}
 	}
 	public int getMove() {
-		if (eqAcc) {
+		if (eqAcc != null) {
 			return move + eqAcc.getMove();
 		} else {
 			return move;
 		}
 	}
-	public int getJump() {
-		if (eqAcc) {
+	public int getJmp() {
+		if (eqAcc != null ) {
 			return jmp + eqAcc.getJmp();
 		} else {
 			return jmp;
@@ -127,29 +128,29 @@ public class Member implements Status {
 	}
 	public int getMgc() {
 		int ans = mgc; 
-		if (eqAcc) {
+		if (eqAcc != null) {
 			ans += eqAcc.getMgc();
 		}
-		if (eqWeapon) {
+		if (eqWeapon != null) {
 			ans += eqWeapon.getMgc();
 		}
 		return ans;
 	}
 	public int getEvade() {
 		int ans = evade;
-		if (eqAcc) {
+		if (eqAcc != null) {
 			ans+=eqAcc.getEvade();
 		}
-		if (eqArmor) {
+		if (eqArmor != null) {
 			ans += eqArmor.getEvade();
 		}
-		if (eqHat) {
+		if (eqHat != null) {
 			ans += eqHat.getEvade();
 		}
-		if (eqShield) {
+		if (eqShield != null) {
 			ans+= eqShield.getEvade();
 		}
-		if (eqWeapon) {
+		if (eqWeapon != null) {
 			ans += eqWeapon.getEvade();
 		}
 		return ans;
@@ -173,21 +174,21 @@ public class Member implements Status {
 		return ans;
 	}
 	public int getSpd() {
-		int ans = speed;
-		if (eqAcc) {
+		int ans = spd;
+		if (eqAcc != null) {
 			ans += eqAcc.getSpd();
 		}
 		return ans;
 	}
 	public int getResist() {
 		int ans = res;
-		if (eqArmor) {
+		if (eqArmor != null) {
 			ans += eqArmor.getResist();
 		}
-		if (eqHat) {
+		if (eqHat != null) {
 			ans += eqHat.getResist();
 		}
-		if (eqShield) {
+		if (eqShield != null) {
 			ans += eqShield.getResist();
 		}
 		return ans;
@@ -197,72 +198,110 @@ public class Member implements Status {
 	}
 	public boolean setJob(Job jb) {
 		for (PreReq i : jb.required) {
-			if (jobs.get(i.typ) < i.level) {
+			if (jobs.get(i.typ).level < i.level) {
 				return false;
 			}
 		}
 		job = jb;
+		primAbil = job.abilSet;
 		return true;
 	}
-	public Weapon getWeap() {
+	public Item getWeap() {
 		return eqWeapon;
 	}
 	public boolean setWeap(Item wpn) {
-		
+		if (wpn.getType() == job.weapType) {
+			eqWeapon = wpn;
+			return true;
+		}
+		return false;
 	}
-	public Armor getArmor() {
+	public boolean remWeap() {
+		eqWeapon = null;
+		return true;
+	}
+	public Item getArmor() {
 		return eqArmor;
 	}
-	public boolean setArmor(Armor amr) {
+	public boolean remArmor() {
+		eqArmor = null;
+		return true;
 	}
-	public Headgear getHat() {
+	public boolean setArmor(Item amr) {
+		if (amr.getType() == job.armorType) {
+			eqArmor = amr;
+			return true;
+		}
+		return false;
+	}
+	public Item getHat() {
 		return eqHat;
 	}
-	public boolean setHat(Headgear hg) {
+	public boolean setHat(Item hg) {
+		if (hg.getType() == job.hatType) {
+			eqHat = hg;
+			return true;
+		}
+		return false;
 	}
-	public Accessory getAcc() {
+	public boolean remHat() {
+		eqHat = null;
+		return true;
+	}
+	public Item getAcc() {
 		return eqAcc;
 	}
-	public boolean setAcc(Accessory acc) {
+	public boolean setAcc(Item acc) {
+		if (acc.itemType == Stats.ACCESSORY) {
+			eqAcc= acc;
+			return true;
+		}
+		return false;
 	}
-	public ArrayList<AbilitySet> getSkills() {
-		return skills;
-	}
-	public PasAbil getReact() {
+	// public ArrayList<AbilitySet> getSkills() {
+		// ArrayList<AbilitySet> skills = new ArrayList<AbilitySet>();
+		// for (Job i : jobs) {
+			// skills.add(i.abilSet);
+		// }
+		// return skills;
+	// }
+	public Ability getReact() {
 		return reactAbil;
 	}
-	public boolean setReact(PasAbil pa) {
-		if (pa.reactive) {
-			for (AbilitySet i : skills) {
-				if (i.contains(pa)) {
-					if (pa.aquired()) {
-						reactAbil = pa;
-						return true;
-					} else {
-						if (eqWeapon.hasAbil(pa) || eqArmor.hasAbil(pa)) {
-							reactAbil = pa;
-						}
-					}
-				}
-			}
+	public boolean setReact(Ability pa) {
+		if (pa.abilType == Stats.REACTIVE) {
+			reactAbil = pa;
+			return true;
 		}
 		return false;
 		
 	}
-	public PasAbil getSupp() {
-		return setSupp;
+	public Ability getSupp() {
+		return suppAbil;
 	}
-	public boolean setSupp(PasAbil pa) {
+	public boolean setSupp(Ability pa) {
+		if (pa.abilType == Stats.PASSIVE) {
+			suppAbil = pa;
+			return true;
+		}
+		return false;
 	}
 	public AbilitySet getPrimAbil() {
 		return primAbil;
 	}
 	public boolean setPrimAbil(AbilitySet abil){
+		if (job.abilSet.equals(abil)) {
+			primAbil =abil;
+			return true;
+		}
+		return false;
 	}
 	public AbilitySet getSecAbil() {
 		return secAbil;
 	}
 	public boolean setSecAbil(AbilitySet abil){
+		secAbil = abil;
+		return true;
 	}
 	public boolean levelUp() {
 		if (exp < 100) {
@@ -273,7 +312,7 @@ public class Member implements Status {
 			def += ((job.DefF)+9)/10;
 			mgc += ((job.MgcF)+9)/10;
 			Random r = new Random();
-			if (r.getDouble() <= job.getSpdF()) {
+			if (r.nextDouble() <= job.SpdF) {
 				if (spd <197){
 					spd++;
 				}
@@ -283,6 +322,15 @@ public class Member implements Status {
 			res += ((job.ResF)+9)/10;
 			return true;
 		}
+	}
+	public String getName() {
+		return name;
+	}
+	public ArrayList<Integer> getEffects() {
+		return null;
+	}
+	public ArrayList<Integer> getProtects() {
+		return null;
 	}
 
 }

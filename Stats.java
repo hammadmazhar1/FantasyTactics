@@ -13,8 +13,6 @@ public class Stats {
 	/*
 	ITEM IDENTIFIERS
 	*/
-	public static final int WEAPN = 1;
-	public static final int ATTIRE = 2;
 	public static final int SWORDS = 1;
 	public static final int KNIVES = 2;
 	public static final int STAVES = 3;
@@ -24,12 +22,13 @@ public class Stats {
 	public static final int KATANAS = 7;
 	public static final int GREATBOWS = 8;
 	public static final int BOOKS = 9;
-	public static final int ARMOR = 1;
-	public static final int CLOTHES = 2;
-	public static final int ROBES = 3;
-	public static final int HELMETS = 1;
-	public static final int HATS = 2;
-	public static final int SHIELDS = 3;
+	public static final int ARMOR = 10;
+	public static final int CLOTHES = 11;
+	public static final int ROBES = 12;
+	public static final int HELMETS = 13;
+	public static final int HATS = 14;
+	public static final int SHIELDS = 15;
+	public static final int ACCESSORY = 16;
 	/*
 	ABILITY IDENTIFIERS
 	*/
@@ -37,6 +36,7 @@ public class Stats {
 	public static final int MAGIC = 2;
 	public static final int ACTIVE = 3;
 	public static final int PASSIVE = 4;
+	public static final int REACTIVE = 5;
 	/*
 	STATUS IDENTIFIERS
 	*/
@@ -93,8 +93,8 @@ public class Stats {
 	public static final int HPTHIEF = 83;
 	public static final int HPHEALER = 84;
 	public static final int HPMAGE = 79;
+	public static final int HPFIGHTER = 84;
 	public static final int HPARCHER = 86;
-	public static final int HPFIGHER = 84;
 	public static final int HPNINJA = 79;
 	public static final int HPWIZARD = 76;
 	public static final int HPSEER = 83;
@@ -120,7 +120,7 @@ public class Stats {
 	public static final int JMPSOLDIER = 2;
 	public static final int JMPTHIEF = 3;
 	public static final int JMPHUNTER = 2;
-	public static final int JMPSEER = 2;
+	public static final int JMPHEALER = 2;
 	public static final int JMPNINJA = 3;
 	public static final int JMPFIGHTER = 2;
 	public static final int JMPARCHER = 2;
@@ -149,6 +149,7 @@ public class Stats {
 	public static final int ATKHEALER = 64;
 	public static final int ATKMAGE = 60;
 	public static final int ATKARCHER = 92;
+	public static final int ATKFIGHTER = 84;
 	public static final int ATKNINJA = 88;
 	public static final int ATKWIZARD = 60;
 	public static final int ATKSEER = 63;
@@ -239,16 +240,16 @@ public class Stats {
 	/*
 	SPD GROWTH STATS
 	*/
-	public static final double SPDFSOLDIER = .5
-	public static final double SPDFTHIEF = .7;
-	public static final double SPDFHEALER = .52;
-	public static final double SPDFMAGE = .46;
-	public static final double SPDFARCHER = .55;
-	public static final double SPDFFIGHTER = .53;
-	public static final double SPDFNINJA = .9;
-	public static final double SPDFWIZARD = .35;
-	public static final double SPDFSEER = .40;
-	public static final double SPDFHUNTER = .65;
+	public static final double SPDFSOLDIER = .5d;
+	public static final double SPDFTHIEF = .7d;
+	public static final double SPDFHEALER = .52d;
+	public static final double SPDFMAGE = .46d;
+	public static final double SPDFARCHER = .55d;
+	public static final double SPDFFIGHTER = .53d;
+	public static final double SPDFNINJA = .9d;
+	public static final double SPDFWIZARD = .35d;
+	public static final double SPDFSEER = .40d;
+	public static final double SPDFHUNTER = .65d;
 	
 	/*
 	ATK GROWTH STATS

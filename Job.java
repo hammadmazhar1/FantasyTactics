@@ -1,11 +1,13 @@
-public class Job {
+import java.util.*;
+import java.io.*;
+public class Job implements Serializable {
 	String name;
 	public int type;
 	public int weapType;
 	public int armorType;
 	public int hatType;
-	public int intHp;
-	public int intMp;
+	public int intHP;
+	public int intMP;
 	public int intMove;
 	public int intSpd;
 	public int intJmp;
@@ -41,7 +43,7 @@ public class Job {
 				weapType = Stats.SWORDS;
 				armorType = Stats.ARMOR;
 				hatType = Stats.HELMETS;
-				intHP = Stats.HPSOlDIER;
+				intHP = Stats.HPSOLDIER;
 				intMP = Stats.MPSOLDIER;
 				intMove = Stats.MVESOLDIER;
 				intJmp = Stats.JMPSOLDIER;
@@ -69,7 +71,7 @@ public class Job {
 				intHP = Stats.HPTHIEF;
 				intMP = Stats.MPTHIEF;
 				intMove = Stats.MVETHIEF;
-				intJmp = Stats.JMPTHIEF
+				intJmp = Stats.JMPTHIEF;
 				intSpd = Stats.SPDTHIEF;
 				intEvd = Stats.EVDTHIEF;
 				intAtk = Stats.ATKTHIEF;
@@ -255,7 +257,7 @@ public class Job {
 				intRes = Stats.RESWIZARD;
 				atkBon = Stats.ABONWIZARD;
 				HpF = Stats.HPFWIZARD;
-				MpF = State.MPFWIZARD;
+				MpF = Stats.MPFWIZARD;
 				AtkF = Stats.ATKFWIZARD;
 				DefF = Stats.DEFFWIZARD;
 				MgcF = Stats.MGCFWIZARD;
@@ -269,7 +271,7 @@ public class Job {
 				armorType = Stats.CLOTHES;
 				hatType = Stats.HATS;
 				intHP = Stats.HPHUNTER;
-				intMp = Stats.MPHUNTER;
+				intMP = Stats.MPHUNTER;
 				intMove = Stats.MVEHUNTER;
 				intJmp = Stats.JMPHUNTER;
 				intSpd = Stats.SPDHUNTER;
@@ -295,7 +297,7 @@ public class Job {
 			level++;
 			return true;
 		} else {
-			return false
+			return false;
 		}
 	}
 }
