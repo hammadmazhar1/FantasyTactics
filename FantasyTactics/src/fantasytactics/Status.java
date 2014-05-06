@@ -1,3 +1,5 @@
+package fantasytactics;
+
 import java.util.*;
 public interface Status {
 	public int getAtk();

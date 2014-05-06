@@ -1,3 +1,5 @@
+package fantasytactics;
+
 public class Stats {
 	
 	/*

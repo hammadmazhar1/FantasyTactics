@@ -35,7 +35,7 @@ public class Item implements Status, Serializable{
 	Item(String nm) {
 		name = nm;
 		// switch (nm) {
-			// //TODO add ITEM stats and types here
+			//TODO add ITEM stats and types here
 			// case ""
 		// }
 		
